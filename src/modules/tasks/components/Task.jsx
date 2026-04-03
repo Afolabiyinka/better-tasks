@@ -1,12 +1,13 @@
 import { Tooltip } from "@material-tailwind/react";
 import CustomCheckbox from "../../../Components/custom/Checkbox";
-import { Trash } from "lucide-react";
+import { Trash, Trash2 } from "lucide-react";
 import { useDeleteTask } from "../hooks/useDeleteTasks";
 
 const Task = ({ task }) => {
-  const taskId = task._id;
+  const taskId = task?._id || task?.id;
+  if (!taskId) return null;
   console.log(taskId);
-  const { handleDelete } = useDeleteTask({ taskId });
+  const { handleDelete } = useDeleteTask(taskId);
   const getPriorityColor = (priority) => {
     switch (priority) {
       case "high":
@@ -42,7 +43,7 @@ const Task = ({ task }) => {
               onClick={() => handleDelete()}
               className="h-12 w-12 hover:bg-black hover:text-white cursor-pointer flex justify-center items-center rounded-full"
             >
-              <Trash className="stroke-[1px]" />
+              <Trash2 className="stroke-[1px]" />
             </span>
           </Tooltip.Trigger>
           <Tooltip.Content className=""> Delete Task </Tooltip.Content>

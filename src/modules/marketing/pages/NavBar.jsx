@@ -8,9 +8,8 @@ import {
   DollarSign,
   Menu,
   CheckSquare,
-  LogIn,
+  ArrowRight,
 } from "lucide-react";
-// import tmLogo from "../../../Assets/favicon-32x32.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import CustomBtn from "../../../Components/custom/CustomBtn";
@@ -75,7 +74,7 @@ export default function DarkNavbar() {
 
         <span className="ease-in-out hidden lg:ml-auto lg:inline-block">
           <CustomBtn
-            icon={LogIn}
+            icon={ArrowRight}
             children={`Log in`}
             onClick={() => navigate("/auth/login")}
           />

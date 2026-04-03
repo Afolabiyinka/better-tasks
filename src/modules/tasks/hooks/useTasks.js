@@ -25,10 +25,11 @@ export const useTasks = () => {
             },
           },
         );
+        if (res.status === 403) {
+          window.location.href = "/auth/login";
+        }
         const data = await res.json();
 
-        if (!data.ok) {
-        }
         return data.tasks;
       } catch (err) {
         console.log(err);

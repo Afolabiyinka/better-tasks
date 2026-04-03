@@ -29,7 +29,7 @@ const Register = () => {
         </motion.h2>
 
         <motion.form
-          className="flex flex-col justify-center items-center gap-4 p-6 text-gray-600 w-full"
+          className="flex flex-col justify-center items-center gap-4 p-6  w-full"
           onSubmit={handleSignup}
           variants={slideUpVariants}
         >

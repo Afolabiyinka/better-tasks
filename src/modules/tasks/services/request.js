@@ -23,9 +23,7 @@ async function deleteTask(id) {
     `https://taskmaster-project-hi5d.onrender.com/tasks/${id}`,
     {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     },
   );
 

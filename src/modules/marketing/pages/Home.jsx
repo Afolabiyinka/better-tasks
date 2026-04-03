@@ -1,5 +1,5 @@
-import whiteScreenShot from "../../../Assets/ScreenShots/Screenshot (105).png";
-import blackScreenShot from "../../../Assets/ScreenShots/Screenshot (106).png";
+import whiteScreenShot from "../../../Assets/ScreenShots/light-screenshot.webp";
+import blackScreenShot from "../../../Assets/ScreenShots/dark-screenshot.webp";
 import CustomBtn from "../../../Components/custom/CustomBtn";
 import { motion } from "framer-motion";
 import { ArrowRightCircle } from "lucide-react";
@@ -12,8 +12,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center h-full w-full px-4 lg:px-12 py-2 gap-10 relative overflow-hidden">
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 max-w-2xl">
+    <div className="flex flex-col lg:flex-row  h-full w-full justify-center items-center p-10 md:px-16">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 md:w-1/2  h-full w-full">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg text-gray-600 dark:text-gray-400 capitalize"
+          className="text-xl text-gray-600 dark:text-gray-400 capitalize"
         >
           Efficiently manage your tasks and boost productivity
         </motion.p>
@@ -49,8 +49,12 @@ const Home = () => {
       </div>
 
       {/* Right side: Floating Screenshot */}
-      <span className="w-full lg:w-[40%] flex items-center justify-center">
-        <motion.img src={screenshot} alt="App Preview" className="" />
+      <span className="w-full lg:w-1/2 h-full flex items-center justify-center">
+        <motion.img
+          src={screenshot}
+          alt="App Preview"
+          className="max-w-[300px]"
+        />
       </span>
     </div>
   );

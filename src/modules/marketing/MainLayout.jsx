@@ -4,11 +4,11 @@ import Footer from "./pages/Footer";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="w-full h-full">
       <DarkNavbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

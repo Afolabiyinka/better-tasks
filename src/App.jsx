@@ -17,7 +17,7 @@ function App() {
     document.body.classList.add(appliedTheme);
   }, [theme]);
   return (
-    <div className="flex justify-center items-center w-full h-full flex-col font-[Montserrat]">
+    <div className="flex w-full h-full flex-col justify-center items-center font-[Montserrat]">
       <Suspense fallback={<LoadingContainer />}>
         <Router />
       </Suspense>

@@ -14,7 +14,7 @@ const Login = () => {
   const { handleLogin, loading, loginData, setLoginData } = useLogin();
   return (
     <motion.div
-      className="h-full w-full flex items-center justify-center text-gray-700 font-sans"
+      className="h-full w-full flex items-center justify-center font-sans"
       initial="hidden"
       animate="visible"
     >

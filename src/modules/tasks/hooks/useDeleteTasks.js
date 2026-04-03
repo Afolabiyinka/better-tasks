@@ -3,7 +3,7 @@ import { deleteTask } from "../services/request";
 import useToastMessage from "../../../shared/store/libs/useToastMsg";
 import { queryClient } from "../../../main";
 
-export const useDeleteTask = ({ id }) => {
+export const useDeleteTask = (id) => {
   const { toastSuccess, toastError, toastLoading } = useToastMessage();
 
   const { mutate } = useMutation({

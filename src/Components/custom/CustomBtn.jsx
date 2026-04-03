@@ -13,7 +13,7 @@ const CustomBtn = ({
   return (
     <motion.button
       type={type}
-      whileHover={{ y: -3 }}
+      whileHover={{ y: -6 }}
       whileTap={{ scale: 0.9 }}
       onClick={onClick}
       disabled={disabled}

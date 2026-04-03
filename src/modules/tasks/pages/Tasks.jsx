@@ -40,7 +40,7 @@ const Tasks = () => {
             No tasks yet! Add one above.
           </p>
         ) : (
-          tasks?.map((task) => <Task key={task.id} task={task} />)
+          tasks?.map((task) => <Task key={task._id} task={task} />)
         )}
       </div>
     </div>

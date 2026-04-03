@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Textarea } from "@material-tailwind/react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import undrawPDF from "../../../Assets/undraw_feedback_ebmx.svg";
+import undrawPDF from "../../../Assets/review_image.svg";
 import { CustomInput } from "../../../Components/custom/Input";
 import { Mail, User } from "lucide-react";
 import CustomBtn from "../../../Components/custom/CustomBtn";
@@ -53,7 +53,7 @@ const Form = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-2xl "
+          className="text-xl "
         >
           Help us improve! Share your thoughts with us.
         </motion.h1>
@@ -69,7 +69,7 @@ const Form = () => {
             className="flex flex-col  justify-center items-center gap-4"
           >
             <div className="flex flex-col gap-3 w-full">
-              <label htmlFor="name" className=" font-mono text-lg">
+              <label htmlFor="name" className="  text-lg">
                 Your Name
               </label>
 
@@ -80,7 +80,7 @@ const Form = () => {
                 onChange={(e) => setName(e.target.value)}
               />
 
-              <label htmlFor="email" className=" font-mono text-lg">
+              <label htmlFor="email" className="text-lg">
                 Your Email
               </label>
 
@@ -93,7 +93,7 @@ const Form = () => {
             </div>
 
             <div className="flex flex-col gap-2 w-full">
-              <label htmlFor="message" className=" font-mono text-lg">
+              <label htmlFor="message" className="text-lg">
                 How can we assist you better?
               </label>
               <Textarea
@@ -104,7 +104,7 @@ const Form = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 required
                 variants={slideUpVariants}
-                className=" rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                className=" rounded-xl p-3 focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none"
               />
             </div>
 
@@ -126,7 +126,7 @@ const Form = () => {
       <motion.img
         src={undrawPDF}
         alt="Feedback Illustration"
-        className="w-[60%] rounded-xlshadow-md  object-cover h-[80%] hidden lg:block p-10"
+        className="w-[60%]  object-cover h-[80%] hidden lg:block p-10 max-h-[500px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
