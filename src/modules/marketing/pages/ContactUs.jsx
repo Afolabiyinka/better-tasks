@@ -47,7 +47,7 @@ const Form = () => {
   };
 
   return (
-    <div className=" py-2 flex justify-start items-center px-6 ">
+    <div className=" py-2 flex justify-start items-center">
       <div className="w-full lg:w-[50%] px-2 flex flex-col items-center gap-5">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ const Form = () => {
         </motion.h1>
 
         <motion.div
-          className="w-full max-w-md lg:max-w-[25rem] rounded-xl p-4 border-[2px]"
+          className="w-full  lg:max-w-[25rem] rounded-xl p-4 border-[2px]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -114,6 +114,7 @@ const Form = () => {
               whileTap={{ scale: 0.95 }}
             >
               <CustomBtn
+                type="submit"
                 className={`w-full`}
                 disabled={isSending}
                 loading={isSending}

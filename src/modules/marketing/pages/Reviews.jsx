@@ -35,7 +35,7 @@ const Reviews = () => {
     },
   };
   return (
-    <div className="h-fit shadow-sm flex flex-col items-center gap-12 px-1 py-6 md:py-16 justify-center">
+    <div className="h-fit shadow-sm flex flex-col  gap-12 px-4 py-6 md:py-16 justify-center items-center">
       <motion.h1
         className="text-3xl font-bold text-center"
         initial="hidden"

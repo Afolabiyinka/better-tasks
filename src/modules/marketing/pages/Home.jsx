@@ -12,8 +12,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col lg:flex-row  h-full w-full justify-center items-center p-10 md:px-16">
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 md:w-1/2  h-full w-full">
+    <div className="flex flex-col lg:flex-row  h-full w-full justify-center items-center p-10 md:px-16 gap-3">
+      <div className="space-y-6 gap-5 md:w-1/2   lg:px-10 h-full w-full">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
