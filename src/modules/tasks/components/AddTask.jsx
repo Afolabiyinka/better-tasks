@@ -25,7 +25,7 @@ const AddTask = () => {
   return (
     <Dialog open={true} onOpenChange={handleClose}>
       <DialogOverlay className="backdrop-blur-sm">
-        <DialogContent className="sm:max-w-lg border-none shadow-none relative p-4 max-h-[90vh]">
+        <DialogContent className="sm:max-w-lg border-none shadow-none relative p-4 h-[60%]">
           <button
             onClick={handleClose}
             className="absolute top-2 right-3 border p-1.5 rounded-xl hover:bg-black/5 transition-colors"
@@ -53,6 +53,7 @@ const AddTask = () => {
               />
 
               <Select
+                placement="bottom-end"
                 value={taskInputData.priority}
                 onChange={(value) =>
                   setTaskInputData((prev) => ({
@@ -60,11 +61,12 @@ const AddTask = () => {
                     priority: value,
                   }))
                 }
+                animate={{
+                  mount: { y: 0 },
+                  unmount: { y: 25 },
+                }}
               >
-                <SelectTrigger
-                  className="w-32 h-12 border"
-                  placeholder="Priority"
-                />
+                <SelectTrigger className="w-32 border" placeholder="Priority" />
                 <SelectList>
                   <SelectOption value="high">High</SelectOption>
                   <SelectOption value="medium">Medium</SelectOption>

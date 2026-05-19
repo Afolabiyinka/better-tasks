@@ -8,6 +8,7 @@ import {
   CheckSquare,
   ClipboardXIcon,
   ListTodo,
+  Plus,
   RefreshCcw,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +42,7 @@ const Tasks = () => {
         </h1>
         <CustomBtn
           type="button"
-          icon={CheckSquare}
+          icon={Plus}
           onClick={() => navigate("/add-task")}
         >
           Add Task
