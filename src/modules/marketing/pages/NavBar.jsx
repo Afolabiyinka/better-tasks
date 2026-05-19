@@ -56,18 +56,18 @@ export default function DarkNavbar() {
   }, []);
 
   return (
-    <Navbar className="mx-auto w-full bg-inherit p-3 border-none mb-1 shadow-sm z-50">
-      <div className="flex items-center">
+    <Navbar className="mx-auto w-full bg-inherit p-2 border-none mb-1 shadow-none z-50 flex flex-col md:flex-row justify-center items-center">
+      <div className="flex items-center border shadow md:w-[85%] p-2  rounded-full w-full md:px-6 px-4 mt-2">
         <a
           href="/"
-          className="ml-2 mr-6 flex text-2xl  font-semibold items-center gap-1  capitalize"
+          className="ml-2 mr-6 flex text-xl  p-2 rounded-xl font-semibold items-center gap-1  capitalize"
           onClick={() => setOpenNav(false)}
         >
           {/* <img src={tmLogo} alt="Logo" className="rounded-lg object-cover" /> */}
           <CheckSquare className="stroke-[2px]" />
           Better Tasks
         </a>
-        <hr className="ml-1 mr-1.5 hidden h-5 w-px border-l border-t-0 border-surface/25 lg:block dark:border-surface" />
+        <hr className="ml-1 mr-1.5 hidden h-5 w-px border-l border-t-0 border border-black dark:border-white lg:block" />
         <div className="hidden lg:block">
           <NavList />
         </div>

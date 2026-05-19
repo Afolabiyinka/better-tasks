@@ -47,13 +47,13 @@ const Form = () => {
   };
 
   return (
-    <div className=" py-2 flex justify-start items-center">
+    <div className="min-h-screen p-2 flex justify-start items-center">
       <div className="w-full lg:w-[50%] px-2 flex flex-col items-center gap-5">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-xl "
+          className="text-lg"
         >
           Help us improve! Share your thoughts with us.
         </motion.h1>
@@ -77,6 +77,7 @@ const Form = () => {
                 icon={User}
                 type="text"
                 value={name}
+                placeholder={`John Doe`}
                 onChange={(e) => setName(e.target.value)}
               />
 
@@ -87,6 +88,7 @@ const Form = () => {
               <CustomInput
                 icon={Mail}
                 type="email"
+                placeholder={`you@gmail.com`}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -97,6 +99,7 @@ const Form = () => {
                 How can we assist you better?
               </label>
               <Textarea
+                placeholder="Start typing..."
                 name="message"
                 id="message"
                 rows={5}

@@ -19,7 +19,7 @@ export default function PricingCard() {
         <Typography
           as="span"
           type="h1"
-          className="mt-3 flex justify-center gap-1 text-7xl"
+          className="mt-3 flex justify-center gap-1 text-6xl"
         >
           <span className="mt-2 text-4xl">$</span>0
           <span className="self-end text-4xl">/mo</span>

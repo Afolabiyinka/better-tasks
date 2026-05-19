@@ -1,6 +1,5 @@
 import { Sun, Moon, CloudSun } from "lucide-react";
 import Settings from "../components/Settings";
-import Switch from "../../ModeToggle";
 
 const Greetings = () => {
   const timeNow = new Date().getHours();
@@ -20,19 +19,18 @@ const Greetings = () => {
   const { greeting, Icon, color } = getGreeting();
 
   return (
-    <div className="w-full rounded-2xl border p-6">
+    <div className="w-full rounded-2xl p-2 md:p-6">
       <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between">
         <div className="flex items-center gap-4">
-          <Icon size={40} className={`${color} stroke-[1.5px]`} />
-          <div className="flex flex-col items-center ">
-            <h1 className="md:text-2xl font-bold">{greeting}, Olayinka</h1>
-            <p className="md:text-xl">What do you plan to do today?</p>
+          <div className="bg-black text-white rounded-full p-2 flex justify-center items-center">
+            <Icon size={40} className={`stroke-[0.8px] h-10 w-10`} />
+          </div>
+          <div className="flex flex-col ">
+            <h1 className="md:text-xl font-bold">{greeting}, Olayinka</h1>
+            <p className="">What do you plan to do today?</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Switch />
-          <Settings />
-        </div>
+        <div className="flex items-center gap-4">{/* <Settings /> */}</div>
       </div>
     </div>
   );

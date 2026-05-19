@@ -1,6 +1,6 @@
 import { Checkbox, CheckboxIndicator } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { User, Mail, Lock } from "lucide-react";
+import { User, Mail, Lock, UserPlus, HandIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { CustomInput } from "../../../Components/custom/Input";
 import CustomBtn from "../../../Components/custom/CustomBtn";
@@ -16,18 +16,34 @@ const Register = () => {
 
   return (
     <motion.div
-      className="h-[90vh] flex flex-col p-2 justify-center items-center w-full"
+      className="min-h-screen flex items-center justify-center p-4 w-full"
       initial="hidden"
       animate="visible"
     >
-      <motion.div className="p-3 md:p-10" variants={slideUpVariants}>
-        <motion.h2
-          className="text-3xl tracking-wider capitalize font-sans  mb-4 flex gap-2 items-center justify-center"
+      <motion.div
+        variants={slideUpVariants}
+        className="
+          max-w-md mx-auto
+          w-full 
+          rounded-3xl
+          border
+          p-6 sm:p-8
+          shadow-sm
+        "
+      >
+        {" "}
+        <motion.div
           variants={slideUpVariants}
+          className="flex flex-col items-center mb-8"
         >
-          Create a new account
-        </motion.h2>
+          <div className="mb-3 p-3 rounded-2xl border">
+            <HandIcon size={28} className="stroke-[1.5px] animate-bounce" />
+          </div>
 
+          <h1 className="text-2xl font-semibold tracking-tight">New here</h1>
+
+          <p className="text-sm text-gray-500 mt-1">Create an your account</p>
+        </motion.div>
         <motion.form
           className="flex flex-col justify-center items-center gap-4 p-6  w-full"
           onSubmit={handleSignup}
@@ -64,7 +80,7 @@ const Register = () => {
             className="flex items-center w-full"
             variants={slideUpVariants}
           >
-            <label className="flex items-center cursor-pointer">
+            <label className="flex items-center cursor-pointer text-sm">
               <CustomCheckbox />
               Remember Me
             </label>
@@ -77,7 +93,7 @@ const Register = () => {
             children={`Create Account`}
           />
           <motion.p
-            className=" mt-4 flex gap-1 text-lg tracking-wider text-center"
+            className=" mt-4 flex gap-1 text-sm tracking-wider text-center"
             variants={slideUpVariants}
           >
             Already have an account?

@@ -31,4 +31,28 @@ async function deleteTask(id) {
   return data;
 }
 
-export { addTask, deleteTask };
+async function toggleTodo(id, completed) {
+  const response = await fetch(
+    `https://taskmaster-project-hi5d.onrender.com/tasks/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        completed: completed,
+      }),
+    },
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Failed to update task");
+  }
+
+  return data;
+}
+
+export { addTask, deleteTask, toggleTodo };

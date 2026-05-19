@@ -1,3 +1,4 @@
+import { Input } from "@material-tailwind/react";
 import { motion } from "framer-motion";
 
 export const CustomInput = ({
@@ -10,12 +11,12 @@ export const CustomInput = ({
 }) => {
   return (
     <motion.div
-      className={`relative w-[20rem] h-[3.5rem] flex  gap-3 items-center justify-center pl-2 border-[1px] rounded-2xl overflow-hidden  focus:ring-2 focus:ring-blue-500  ${className} `}
+      className={`relative w-full h-12 text-sm flex  gap-1 items-center justify-center pl-2 border-[1px] rounded-xl overflow-hidden focus:ring-2 ${className} `}
     >
-      <Icon size={35} className={`stroke-[1px]`} />
+      {Icon && <Icon size={25} className={`stroke-[1px]`} />}
       <input
         placeholder={placeholder}
-        className="h-full w-full p-1 bg-inherit text-inherit focus:border-0 focus:outline-none"
+        className="h-full w-full focus:shadow-none border-0 bg-transparent outline-none shadow-none "
         type={type}
         value={value}
         onChange={onChange}

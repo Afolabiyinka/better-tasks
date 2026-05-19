@@ -31,13 +31,13 @@ const Features = () => {
   };
 
   return (
-    <div className="py-6 px-4 h-screen w-full  flex flex-col justify-center items-center shadow-sm">
+    <div className="py-6 px-4 h-screen w-full  flex flex-col justify-center items-center">
       <motion.h2
         initial="hidden"
         whileInView="visible"
         exit="hidden"
         variants={titleVariants}
-        className="text-3xl md:text-3xl font-bold text-center mb-12"
+        className="text-3xl md:text-5xl font-semibold text-center mb-16"
       >
         Why Choose Our Task Manager?
       </motion.h2>
@@ -47,38 +47,21 @@ const Features = () => {
           <motion.div
             key={title}
             initial={{ y: 40 }}
-            animate={{ y: 1 }}
+            whileInView={{ y: 1 }}
             exit={{ opacity: 0 }}
             whileHover={{
               boxShadow:
                 "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
             }}
-            className="px-1 border py-4 rounded-2xl  flex gap-4 items-center w-full  transition-all duration-300"
+            className="p-2 border rounded-2xl  flex gap-4 items-center w-full  transition-all duration-300"
           >
-            <div className="p-3 rounded-xl flex items-center justify-center">
+            <div className="p-3 bg-gray-200 dark:text-black rounded-xl flex items-center justify-center">
               <Icon size={28} color={color} className="stroke-[1px]" />
             </div>
-            <p className="font-sans font-medium text-xl md:text-xl">{title}</p>
+            <p className="font-sans font-medium text-md">{title}</p>
           </motion.div>
         ))}
       </motion.div>
-
-      {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          exit="hidden"
-          s
-          variants={imageVariants}
-          className="w-full md:w-[50%] max-w-2xl h-full bg-inherit"
-        >
-          <div className="relative rounded-2xl overflow-hidden  flex justify-center  items-center">
-            <img
-              src={svgAnimation}
-              alt="Task manager animation"
-              className="h-96 object-cover"
-            />
-          </div>
-        </motion.div> */}
     </div>
   );
 };

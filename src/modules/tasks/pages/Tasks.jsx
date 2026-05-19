@@ -4,10 +4,17 @@ import Task from "../components/Task";
 import { useTasks } from "../hooks/useTasks";
 import LoadingContainer from "../../../Components/loader/LoadingContainer";
 import CustomBtn from "../../../Components/custom/CustomBtn";
-import { RefreshCcw } from "lucide-react";
+import {
+  CheckSquare,
+  ClipboardXIcon,
+  ListTodo,
+  RefreshCcw,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Tasks = () => {
   const { error, loading, tasks, refetch } = useTasks();
+  const navigate = useNavigate();
 
   let tasksText = tasks.length === 1 ? "task" : "tasks";
 
@@ -27,18 +34,32 @@ const Tasks = () => {
   }
 
   return (
-    <div className="w-full  rounded-2xl overflow-y-scroll p-1  h-full">
-      <div className="flex md:flex-row flex-col w-full justify-between md:items-center p-1 gap-1 mb-3">
-        <h1 className="font-bold text-2xl md:ml-5">
+    <div className="w-full  rounded-2xl overflow-auto p-1  h-full">
+      <div className="flex md:flex-row flex-col w-full justify-between md:items-center p-1 gap-2 mb-3">
+        <h1 className="font-bold text-xl md:ml-5">
           You have ( {tasks.length} ) {tasksText} pending
         </h1>
-        <AddTask />
+        <CustomBtn
+          type="button"
+          icon={CheckSquare}
+          onClick={() => navigate("/add-task")}
+        >
+          Add Task
+        </CustomBtn>
       </div>
       <div className="h-full w-full p-2 space-y-3">
         {tasks.length === 0 ? (
-          <p className="text-gray-500 text-center">
-            No tasks yet! Add one above.
-          </p>
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+            <div className="p-4 rounded-3xl border mb-4">
+              <ListTodo size={48} className="text-gray-400 stroke-[1.5px]" />
+            </div>
+
+            <h2 className="text-lg font-semibold">No tasks yet</h2>
+
+            <p className="text-sm text-gray-500 mt-1">
+              Create your first task to get started
+            </p>
+          </div>
         ) : (
           tasks?.map((task) => <Task key={task._id} task={task} />)
         )}

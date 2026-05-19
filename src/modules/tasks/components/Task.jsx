@@ -1,12 +1,13 @@
 import { Tooltip } from "@material-tailwind/react";
 import CustomCheckbox from "../../../Components/custom/Checkbox";
-import { Trash, Trash2 } from "lucide-react";
+import { Loader, Trash, Trash2 } from "lucide-react";
 import { useDeleteTask } from "../hooks/useDeleteTasks";
+import { useToggleTask } from "../hooks/useToggleTodo";
 
 const Task = ({ task }) => {
-  const taskId = task?._id || task?.id;
+  const taskId = task?._id;
+
   if (!taskId) return null;
-  console.log(taskId);
   const { handleDelete } = useDeleteTask(taskId);
   const getPriorityColor = (priority) => {
     switch (priority) {
@@ -20,20 +21,38 @@ const Task = ({ task }) => {
         return "bg-gray-500";
     }
   };
+  const { toggleTodo, loading, activeId } = useToggleTask();
   return (
-    <div className="flex w-full justify-between items-center">
-      <div className="flex items-center">
-        <CustomCheckbox checked={task.checked} />
+    <div className="flex w-full justify-between items-center border p-1 px-3 rounded-3xl">
+      <div className="flex items-center gap-3">
+        {loading && activeId === taskId ? (
+          <Loader size={20} className="animate-spin" />
+        ) : (
+          <CustomCheckbox
+            checked={task.completed}
+            // onChange={() =>
+            //   toggleTodo({
+            //     id: taskId,
+            //     completed: !task.completed,
+            //   })
+            // }
+          />
+        )}
+
         <p
-          className={`${task.checked ? "line-through text-gray-500 dark:text-gray-300" : "text-gray-800 dark:text-gray-100"}`}
+          className={`text-sm ${
+            task.completed
+              ? "line-through text-gray-500 dark:text-gray-300"
+              : "text-gray-800 dark:text-gray-100"
+          }`}
         >
           {task.title}
         </p>
       </div>
 
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-2 items-center">
         <span
-          className={` text-md p-0.5 px-5 rounded-full flex text-white h-fit justify-center items-center ${getPriorityColor(task.priority)}`}
+          className={` text-sm px-5 rounded-full flex text-white h-fit justify-center items-center ${getPriorityColor(task.priority)}`}
         >
           {task.priority}
         </span>
@@ -46,7 +65,10 @@ const Task = ({ task }) => {
               <Trash2 className="stroke-[1px]" />
             </span>
           </Tooltip.Trigger>
-          <Tooltip.Content className=""> Delete Task </Tooltip.Content>
+          <Tooltip.Content className="bg-red-500">
+            {" "}
+            Delete Task{" "}
+          </Tooltip.Content>
         </Tooltip>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "./modules/marketing/MainLayout";
+import AddTask from "./modules/tasks/components/AddTask";
 
 // Lazy Loading our pages
 const LandingPage = lazy(() => import("./modules/marketing/pages/LandingPage"));
@@ -64,6 +65,10 @@ const Router = () => {
     {
       path: "/tasks",
       element: <Tasks />,
+    },
+    {
+      path: "add-task",
+      element: <AddTask />,
     },
   ];
   const routesModule = createBrowserRouter(routes);

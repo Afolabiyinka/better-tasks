@@ -19,17 +19,17 @@ const Settings = () => {
         ></Avatar>
       </MenuTrigger>
       <MenuContent className="p-2">
-        <MenuItem className="flex p-3 items-center">
+        {/* <MenuItem className="flex p-3 items-center">
           <User className="mr-2 h-[20px] w-[20px]" />
           Account
-        </MenuItem>
+        </MenuItem> */}
         {/* <MenuItem> */}
-        <CustomBtn
+        {/* <CustomBtn
           icon={LogOut}
           className="w-full bg-red-500 text-white border-none"
         >
           Log out
-        </CustomBtn>
+        </CustomBtn> */}
         {/* </MenuItem> */}
       </MenuContent>
     </Menu>

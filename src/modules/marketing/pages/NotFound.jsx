@@ -2,8 +2,10 @@ import { Typography } from "@material-tailwind/react";
 import { Flag } from "lucide-react";
 import { motion } from "framer-motion";
 import CustomBtn from "../../../Components/custom/CustomBtn";
+import { useNavigate } from "react-router-dom";
 
 function ErrorSection() {
+  const navigate = useNavigate();
   return (
     <div className="h-screen mx-auto flex flex-col items-center justify-center text-center px-8">
       <motion.div
@@ -25,7 +27,7 @@ function ErrorSection() {
           or try again later.
         </Typography>
         <span className="flex flex-col items-center justify-center">
-          <CustomBtn children={`Back Home`} path="/" />
+          <CustomBtn children={`Back Home`} onClick={() => navigate(-1)} />
         </span>
       </motion.div>
     </div>

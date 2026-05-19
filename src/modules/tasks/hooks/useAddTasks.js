@@ -3,6 +3,7 @@ import { useState } from "react";
 import useToastMessage from "../../../shared/store/libs/useToastMsg";
 import { addTask } from "../services/request";
 import { queryClient } from "../../../main";
+import { useNavigate } from "react-router-dom";
 
 export const useAddTasks = () => {
   const { toastSuccess } = useToastMessage();
@@ -13,6 +14,8 @@ export const useAddTasks = () => {
     completed: false,
   });
 
+  const navigate = useNavigate();
+
   //Add Task
   const {
     mutate,
@@ -22,6 +25,7 @@ export const useAddTasks = () => {
     mutationFn: (payload) => addTask(payload),
     onSuccess: (data) => {
       toastSuccess(data.message || "Task added succesfully");
+      navigate("/tasks");
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
     },
   });

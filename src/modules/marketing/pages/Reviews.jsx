@@ -35,9 +35,9 @@ const Reviews = () => {
     },
   };
   return (
-    <div className="h-fit shadow-sm flex flex-col  gap-12 px-4 py-6 md:py-16 justify-center items-center">
+    <div className="h-fit shadow-sm flex flex-col  gap-12 px-6 p-2 md:py-16 justify-center items-center">
       <motion.h1
-        className="text-3xl font-bold text-center"
+        className="text-xl md:text-5xl font-semibold text-center"
         initial="hidden"
         variants={headingVariants}
         whileInView="visible"

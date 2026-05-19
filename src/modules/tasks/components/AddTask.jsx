@@ -1,7 +1,6 @@
 import {
   Dialog,
   DialogOverlay,
-  DialogTrigger,
   DialogContent,
   Select,
   SelectTrigger,
@@ -10,20 +9,36 @@ import {
 } from "@material-tailwind/react";
 import CustomBtn from "../../../Components/custom/CustomBtn";
 import { CustomInput } from "../../../Components/custom/Input";
-import { CheckSquare, Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { useAddTasks } from "../hooks/useAddTasks";
+import { useNavigate } from "react-router-dom";
 
 const AddTask = () => {
   const { error, handleAddTask, loading, setTaskInputData, taskInputData } =
     useAddTasks();
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate("/tasks");
+  };
+
   return (
-    <Dialog>
-      <DialogTrigger as={CustomBtn}> Add task</DialogTrigger>
-      <DialogOverlay>
-        <DialogContent className="sm:max-w-md">
+    <Dialog open={true} onOpenChange={handleClose}>
+      <DialogOverlay className="backdrop-blur-sm">
+        <DialogContent className="sm:max-w-lg border-none shadow-none relative p-4 max-h-[90vh]">
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-3 border p-1.5 rounded-xl hover:bg-black/5 transition-colors"
+            type="button"
+            aria-label="Close dialog"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
           <form className="space-y-4" onSubmit={handleAddTask}>
-            <h2 className=" mb-4">Add a new task</h2>
-            <div className="flex items-center gap-2">
+            <h2 className="text-lg font-medium">Add a new task</h2>
+
+            <div className="flex flex-col md:flex-row md:items-center gap-2">
               <CustomInput
                 value={taskInputData.title}
                 onChange={(e) =>
@@ -32,18 +47,24 @@ const AddTask = () => {
                     title: e.target.value,
                   })
                 }
-                icon={CheckSquare}
                 placeholder="Walk the dog 🐕‍🦺"
-                className={`w-full`}
+                className="w-full"
+                required
               />
+
               <Select
-                placement="left"
                 value={taskInputData.priority}
-                onValueChange={(value) =>
-                  setTaskInputData({ ...taskInputData, priority: value })
+                onChange={(value) =>
+                  setTaskInputData((prev) => ({
+                    ...prev,
+                    priority: value,
+                  }))
                 }
               >
-                <SelectTrigger className="w-40 h-full" placeholder="Priority" />
+                <SelectTrigger
+                  className="w-32 h-12 border"
+                  placeholder="Priority"
+                />
                 <SelectList>
                   <SelectOption value="high">High</SelectOption>
                   <SelectOption value="medium">Medium</SelectOption>
@@ -51,13 +72,16 @@ const AddTask = () => {
                 </SelectList>
               </Select>
             </div>
+
+            {error && <p className="text-sm text-red-600">{error}</p>}
+
             <CustomBtn
-              className=""
               icon={Plus}
               type="submit"
               disabled={loading}
+              className="w-full"
             >
-              Add Task
+              {loading ? "Adding..." : "Add Task"}
             </CustomBtn>
           </form>
         </DialogContent>

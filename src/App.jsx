@@ -17,11 +17,23 @@ function App() {
     document.body.classList.add(appliedTheme);
   }, [theme]);
   return (
-    <div className="flex w-full h-full flex-col justify-center items-center font-[Montserrat]">
+    <div className="flex w-full h-full flex-col justify-center items-center font-[Inter]">
       <Suspense fallback={<LoadingContainer />}>
         <Router />
       </Suspense>
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            borderRadius: "9999px",
+            background: "#111",
+            color: "#fff",
+            padding: "14px 18px",
+            fontSize: "14px",
+          },
+        }}
+      />
     </div>
   );
 }
