@@ -16,7 +16,7 @@ import CustomBtn from "../../../Components/custom/CustomBtn";
 
 const LINKS = [
   { icon: Home, title: "Home", href: "/" },
-  { icon: CircleCheck, title: "Feautures", href: "/feautures" },
+  { icon: CircleCheck, title: "Features", href: "/feautures" },
   { icon: DollarSign, title: "Pricing", href: "/pricing" },
   { icon: Mail, title: "Contact", href: "/contact" },
 ];
