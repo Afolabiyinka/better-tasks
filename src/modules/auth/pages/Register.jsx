@@ -26,9 +26,7 @@ const Register = () => {
           max-w-md mx-auto
           w-full 
           rounded-3xl
-          border
           p-6 sm:p-8
-          shadow-sm
         "
       >
         {" "}

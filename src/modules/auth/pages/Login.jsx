@@ -34,9 +34,9 @@ const Login = () => {
           max-w-md mx-auto
           w-full 
           rounded-3xl
-          border
+        
           p-6 sm:p-8
-          shadow-sm
+          
         "
       >
         <motion.div
@@ -105,7 +105,7 @@ const Login = () => {
             type="submit"
             disabled={loading}
           >
-            {loading ? "Logging in..." : "Log in"}
+            {loading ? "Login in..." : "Log in"}
           </CustomBtn>
 
           <p className="text-sm text-center text-gray-500 pt-2">
