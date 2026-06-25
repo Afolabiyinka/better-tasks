@@ -3,6 +3,7 @@ import Router from "./Routes";
 import { Toaster } from "sonner";
 import LoadingContainer from "./Components/loader/LoadingContainer";
 import { useTheme } from "./shared/store/useTheme";
+
 function App() {
   const { theme } = useTheme();
   useEffect(() => {
