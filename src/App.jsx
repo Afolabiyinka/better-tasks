@@ -18,7 +18,7 @@ function App() {
     document.body.classList.add(appliedTheme);
   }, [theme]);
   return (
-    <div className="flex w-full h-full flex-col justify-center items-center font-[Inter]">
+    <div className="flex w-full h-full flex-col justify-center items-center font-[Open_Sans]">
       <Suspense fallback={<LoadingContainer />}>
         <Router />
       </Suspense>

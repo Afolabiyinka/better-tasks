@@ -3,6 +3,7 @@ import CustomCheckbox from "../../../Components/custom/Checkbox";
 import { Loader, Trash, Trash2 } from "lucide-react";
 import { useDeleteTask } from "../hooks/useDeleteTasks";
 import { useToggleTask } from "../hooks/useToggleTodo";
+import { color, motion } from "framer-motion";
 
 const Task = ({ task }) => {
   const taskId = task?._id;
@@ -58,12 +59,21 @@ const Task = ({ task }) => {
         </span>
         <Tooltip>
           <Tooltip.Trigger>
-            <span
+            <motion.span
+              transition={{ duration: 0.2 }}
+              whileHover={{
+                backgroundColor: "black",
+                color: "white",
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
               onClick={() => handleDelete()}
-              className="h-12 w-12 hover:bg-black hover:text-white cursor-pointer flex justify-center items-center rounded-full"
+              className="h-12 w-12 cursor-pointer flex justify-center items-center rounded-full hover:bg-black hover:text-white transition-colors"
             >
-              <Trash2 className="stroke-[1px]" />
-            </span>
+              <Trash2 className="stroke-[1px] h-5 w-5" />
+            </motion.span>
           </Tooltip.Trigger>
           <Tooltip.Content className="bg-red-500">
             {" "}
