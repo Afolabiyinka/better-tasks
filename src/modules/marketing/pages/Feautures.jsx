@@ -55,8 +55,8 @@ const Features = () => {
             }}
             className="p-2 border rounded-2xl  flex gap-4 items-center w-full  transition-all duration-300"
           >
-            <div className="p-3  dark:text-black rounded-xl flex items-center justify-center">
-              <Icon size={35} color={color} className="stroke-[1px]" />
+            <div className="p-3  rounded-xl flex items-center justify-center">
+              <Icon size={35} className="stroke-[1px]" />
             </div>
             <p className="font-sans font-medium text-md">{title}</p>
           </motion.div>

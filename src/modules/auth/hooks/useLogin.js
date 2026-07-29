@@ -28,7 +28,6 @@ export const useLogin = () => {
 
   function handleLogin(e) {
     e.preventDefault();
-    console.log("clicked");
     mutate(loginData);
   }
   return {

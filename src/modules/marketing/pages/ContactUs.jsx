@@ -43,6 +43,9 @@ const Form = () => {
       })
       .finally(() => {
         setIsSending(false);
+        setName("");
+        setEmail("");
+        setMessage("");
       });
   };
 
